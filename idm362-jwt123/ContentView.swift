@@ -51,12 +51,9 @@ struct ContentView: View {
           .padding()
         VStack {
           Picker("Pick", selection: $userPicked) {
-//            Text("Yes").tag(0)
-//            Text("No").tag(1)
-//            Text("Trash").tag(2)
-          Image(systemName: "hand.thumbsup").tag(0)
-          Image(systemName: "hand.thumbsdown").tag(1)
-          Image(systemName: "trash").tag(2)
+            Image(systemName: "hand.thumbsup").tag(0)
+            Image(systemName: "hand.thumbsdown").tag(1)
+            Image(systemName: "trash").tag(2)
           }
           .pickerStyle(.segmented)
           .padding()
@@ -65,9 +62,6 @@ struct ContentView: View {
         Spacer()
       }
     }
-    
-    
-
   } // End body
 } // End ContentView
 
