@@ -57,7 +57,7 @@ struct ContentView: View {
           }
           .pickerStyle(.segmented)
           .padding()
-          Text("Value: \(userPicked)")
+          Text("User Picked: \(userPicked)")
         }
         Spacer()
       }
