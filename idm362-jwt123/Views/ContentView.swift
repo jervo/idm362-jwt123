@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
   
+  // Access shared UserData Object
+  @EnvironmentObject var userData: UserData
+
   // Get color scheme from device
   @Environment(\.colorScheme) var colorScheme
   
@@ -50,14 +53,15 @@ struct ContentView: View {
           .foregroundColor(colorScheme == .dark ? .green : .white)
           .padding()
         VStack {
-          Picker("Pick", selection: $userPicked) {
+          Picker("Pick", selection: $userData.ndx) {
             Image(systemName: "hand.thumbsup").tag(0)
             Image(systemName: "hand.thumbsdown").tag(1)
             Image(systemName: "trash").tag(2)
           }
           .pickerStyle(.segmented)
           .padding()
-          Text("User Picked: \(userPicked)")
+          .background(Color("ColorWeatherBG").opacity(0.3))
+          Text("User Picked: \(userData.ndx)")
         }
         Spacer()
       }
@@ -66,5 +70,7 @@ struct ContentView: View {
 } // End ContentView
 
 #Preview {
-    ContentView()
+  ContentView()
+  // Make UserData available
+  .environmentObject(UserData())
 }
